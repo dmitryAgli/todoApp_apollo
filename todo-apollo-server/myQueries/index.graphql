@@ -1,0 +1,53 @@
+# Try to write your query here
+query allTodos{
+	allTodos {
+    _id		
+    text
+    isDone
+  }
+}
+
+query fetchTodo($id:String!){
+	fetchTodo(id: $id) {
+    _id		
+    text
+    isDone
+  }
+}
+
+mutation updateTodo($id: String!,$text: String!,$isDone: Boolean!){
+  updateTodo (id: $id,text: $text,isDone: $isDone){
+    _id
+    text
+    isDone
+  } 		
+}
+
+mutation createTodo($text: String!){
+  	createTodo(text:$text){
+    _id
+    text
+    isDone
+  }  
+}
+
+
+subscription todoCreated{
+  todoCreated{ 
+    _id
+    text
+    isDone
+  }
+}
+
+subscription todoUpdated($id: String!){
+  todoUpdated(id:$id){ 
+      _id
+    	text
+      isDone
+  }
+}
+
+
+
+  
